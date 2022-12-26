@@ -8,13 +8,18 @@ import { HiOutlineChevronRight } from "react-icons/hi";
 import Footer from "../../componentes/Footer/Footer";
 import Map from "../../componentes/Map/Map";
 import home_hero from "../../assets/images/home_hero.jpg";
+import sponsor_1 from "../../assets/images/sponsor1.png";
+import sponsor_2 from "../../assets/images/sponsor2.jpg";
+import sponsor_3 from "../../assets/images/sponsor3.jpg";
+import barber_1 from "../../assets/images/barber1.jpg";
+import barber_2 from "../../assets/images/barber2.jpg";
+import barber_3 from "../../assets/images/barber3.jpg";
 
 const Home = () => {
     return (
         <div>
             <Hero img={home_hero} />
-            <CovideInformation />
-            <div className="container mx-auto px-8 lg:p-0 lg:grid grid-cols-3 gap-4 mb-8">
+            <div className="container mx-auto px-8 lg:p-0 lg:grid grid-cols-4 gap-4 my-8">
                 <div className="flex flex-col gap-6 col-start-1 col-end-3 py-16">
                     <h2 className=" font-ballantines text-6xl">
                         Connecting Coiffure, votre coiffeur à Villeneuve-d'Ascq
@@ -47,12 +52,28 @@ const Home = () => {
                         </span>
                     </p>
                 </div>
-                <div className="col-start-3 col-end-4 relative min-h-[300px] lg:h-auto">
+                <div className="col-start-3 col-end-5 relative min-h-[300px] lg:h-auto">
                     <img
                         src={home_1}
                         className="h-full absolute top-0 left-0 w-full object-cover border-4 border-primary"
                         alt=""
                     />
+                </div>
+            </div>
+            <div className="container px-8 lg:px-0 mx-auto my-8">
+                <h2 className=" font-ballantines text-5xl text-center">
+                    Sponsors
+                </h2>
+                <div className="grid lg:grid-cols-3">
+                    <div className="flex justify-center lg:justify-end">
+                        <img src={sponsor_1} alt="" />
+                    </div>
+                    <div className="flex justify-center">
+                        <img src={sponsor_2} alt="" />
+                    </div>
+                    <div className="flex justify-center lg:justify-start">
+                        <img src={sponsor_3} alt="" />
+                    </div>
                 </div>
             </div>
             <div className="h-96 bg-fixed bg-hero-1 bg-center mb-8"></div>
@@ -267,6 +288,34 @@ const Home = () => {
                                 alt=""
                             />
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div className="container mx-auto text-center my-8 px-8 lg:px-0">
+                <h2 className="text-center mb-4 font-ballantines text-6xl ">
+                    The barbers
+                </h2>
+                <div className="grid  lg:grid-cols-3 gap-4">
+                    <div className=" border-4">
+                        <img
+                            className="h-full object-cover"
+                            src={barber_1}
+                            alt=""
+                        />
+                    </div>
+                    <div className=" border-4">
+                        <img
+                            className="h-full object-cover"
+                            src={barber_2}
+                            alt=""
+                        />
+                    </div>
+                    <div className=" border-4">
+                        <img
+                            className="h-full object-cover"
+                            src={barber_3}
+                            alt=""
+                        />
                     </div>
                 </div>
             </div>

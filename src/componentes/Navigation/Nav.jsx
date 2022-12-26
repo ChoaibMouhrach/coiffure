@@ -10,38 +10,27 @@ const Nav = () => {
     const [isShown, setIsShown] = useState(false);
 
     return (
-        <nav className="h-40">
-            <div className="px-4 lg:p-0 container  h-full mx-auto flex items-center justify-between">
-                <div className="flex-1">
-                    <Logo />
-                </div>
+        <nav className="h-24 bg-black ">
+            <div className="container mx-auto h-full flex justify-center items-center relative">
                 <div
-                    className={`fixed z-50 items-center top-0 w-full left-0 bg-primary lg:bg-transparent lg:static h-screen lg:h-full flex-1 flex justify-center ${
+                    className={`fixed lg:static z-50 lg:z-0 top-0 w-full text-black lg:text-white bg-primary h-screen flex items-center justify-center lg:h-auto lg:bg-transparent  ${
                         isShown ? "" : "hidden lg:flex"
                     }`}
                 >
-                    <div className="fixed z-50 top-0 left-0 p-8 text-xl justify-between items-center w-full flex lg:hidden">
-                        <div className="flex gap-2 justify-end ">
-                            <SocialMedia
-                                url="https://facebook.com"
-                                icon={<BsFacebook />}
-                            />
-                            <SocialMedia
-                                url="https://instagram.com"
-                                icon={<BsInstagram />}
-                            />
-                        </div>
-                        <button onClick={() => setIsShown(false)}>
-                            <GrClose />
-                        </button>
-                    </div>
-                    <ul className="flex-col lg:flex-row text-black flex  items-center gap-8 font-medium mx-auto justify-center">
+                    <button
+                        onClick={() => setIsShown(false)}
+                        className=" fixed top-0 right-0 p-8 text-2xl lg:hidden"
+                    >
+                        <GrClose />
+                    </button>
+                    <ul className="flex flex-col lg:flex-row items-center gap-8">
                         <li className="transition-all duration-300 lg:text-white lg:hover:text-primary before:content-[''] before:absolute before:-bottom-1 before:left-0 relative before:h-1 before:w-0 before:bg-primary hover:before:w-full before:transition-all before:duration-300">
                             <Link to="/">ACCUEIL</Link>
                         </li>
                         <li className="transition-all duration-300 lg:text-white lg:hover:text-primary before:content-[''] before:absolute before:-bottom-1 before:left-0 relative before:h-1 before:w-0 before:bg-primary hover:before:w-full before:transition-all before:duration-300">
                             <Link to="/coiffure-femme">COUPE FEMME</Link>
                         </li>
+                        <div className="w-60 hidden lg:block"></div>
                         <li className="transition-all duration-300 lg:text-white lg:hover:text-primary before:content-[''] before:absolute before:-bottom-1 before:left-0 relative before:h-1 before:w-0 before:bg-primary hover:before:w-full before:transition-all before:duration-300">
                             <Link to="/coiffure-homme">COUPE HOMME</Link>
                         </li>
@@ -50,19 +39,10 @@ const Nav = () => {
                         </li>
                     </ul>
                 </div>
-                <div className="flex-1 lg:flex gap-2 justify-end hidden">
-                    <SocialMedia
-                        url="https://facebook.com"
-                        icon={<BsFacebook />}
-                    />
-                    <SocialMedia
-                        url="https://instagram.com"
-                        icon={<BsInstagram />}
-                    />
-                </div>
-                <div className="flex-1 flex justify-end lg:hidden">
+                <div className="absolute px-8 lg:px-0 flex justify-between lg:justify-center w-full lg:w-fit">
+                    <Logo />
                     <button
-                        className="text-2xl"
+                        className="text-2xl lg:hidden"
                         onClick={() => setIsShown(true)}
                     >
                         <HiMenuAlt3 />

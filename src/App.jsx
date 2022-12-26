@@ -6,7 +6,7 @@ import Contact from "./pages/Contact/Contact";
 
 const App = () => {
     return (
-        <div className="font-raleway">
+        <div className="font-raleway ">
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/coiffure-femme" element={<Womens_barber />} />

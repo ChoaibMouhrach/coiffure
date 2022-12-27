@@ -2,8 +2,6 @@ import { useState } from "react";
 import Hero from "../../componentes/Hero/Hero";
 import hero_img from "../../assets/images/home_1.jpg";
 import Button from "../../componentes/Button/Button";
-import Map from "../../componentes/Map/Map";
-import Footer from "../../componentes/Footer/Footer";
 
 const Contact = () => {
     let [errors, setErrors] = useState({
@@ -152,8 +150,6 @@ const Contact = () => {
                     </p>
                 </form>
             </div>
-            <Map />
-            <Footer />
         </div>
     );
 };

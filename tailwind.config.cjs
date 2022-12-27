@@ -11,7 +11,7 @@ module.exports = {
       transparent: "rgba(0,0,0,0)",
       midtransparent: "rgba(0,0,0,0.6)",
       white: "#fff",
-      red: "#FF0000"
+      red: "#FF0000",
     },
     fontFamily: {
       'ballantines': ['ballantines', 'sans'],

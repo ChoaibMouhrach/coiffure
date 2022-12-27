@@ -1,13 +1,12 @@
 import Hero from "../../componentes/Hero/Hero";
 import mens_hero from "../../assets/images/mens_hero.jpg";
-import Map from "../../componentes/Map/Map";
-import Footer from "../../componentes/Footer/Footer";
 import Table from "../../componentes/Table/Table";
+import menHero from "../../assets/images/menHero.jpg";
 
 const Mens_barber = () => {
     return (
         <div>
-            <Hero img={mens_hero} />
+            <Hero img={menHero} />
             <div className="container mx-auto p-8 lg:px-0 text-center flex flex-col gap-4">
                 <h2 className=" font-ballantines text-5xl">
                     Connecting Coiffure, votre salon de coiffure pour hommes à
@@ -112,8 +111,6 @@ const Mens_barber = () => {
                 cheveux pour hommes, vous pouvez contacter Connecting Coiffure
                 au 07.67.40.58.49.
             </div>
-            <Map />
-            <Footer className="w-80" />
         </div>
     );
 };

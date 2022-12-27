@@ -1,12 +1,9 @@
 import Hero from "../../componentes/Hero/Hero";
-import CovideInformation from "./CovideInformation";
 import home_1 from "../../assets/images/home_1.jpg";
 import home_2 from "../../assets/images/home_2.jpg";
 import home_3 from "../../assets/images/home_3.png";
 import Button from "../../componentes/Button/Button";
 import { HiOutlineChevronRight } from "react-icons/hi";
-import Footer from "../../componentes/Footer/Footer";
-import Map from "../../componentes/Map/Map";
 import home_hero from "../../assets/images/home_hero.jpg";
 import sponsor_1 from "../../assets/images/sponsor1.png";
 import sponsor_2 from "../../assets/images/sponsor2.jpg";
@@ -14,8 +11,38 @@ import sponsor_3 from "../../assets/images/sponsor3.jpg";
 import barber_1 from "../../assets/images/barber1.jpg";
 import barber_2 from "../../assets/images/barber2.jpg";
 import barber_3 from "../../assets/images/barber3.jpg";
+import { API_TOKEN } from "../../Config/Confix";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { ImSpinner9 } from "react-icons/im";
+import { MdClose } from "react-icons/md";
 
 const Home = () => {
+    const [currentImage, setCurrentImage] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [galerie, setGalerie] = useState([]);
+
+    useEffect(() => {
+        async function getImages() {
+            let response = await axios({
+                method: "get",
+                url: `https://api.unsplash.com/photos/random?query=barber&count=5&client_id=${API_TOKEN}`,
+            });
+
+            console.log(response);
+
+            if (response.status == 200) {
+                setGalerie(response.data);
+                setLoading(false);
+            }
+        }
+        getImages();
+    }, []);
+
+    function handleClick(event) {
+        setCurrentImage(event.target.src);
+    }
+
     return (
         <div>
             <Hero img={home_hero} />
@@ -245,50 +272,24 @@ const Home = () => {
                         </h2>
                         <div className="hidden lg:block h-1 w-full bg-white"></div>
                     </div>
-                    <div className="lg:grid grid-cols-6 gap-2">
-                        <div>
-                            <img
-                                src={home_1}
-                                className="h-64 w-full border-2 border-primary"
-                                alt=""
-                            />
+                    {loading ? (
+                        <div className="flex justify-center">
+                            <ImSpinner9 className=" animate-spin" />
                         </div>
-                        <div>
-                            <img
-                                src={home_2}
-                                className="h-64 w-full border-2 border-primary"
-                                alt=""
-                            />
+                    ) : (
+                        <div className="lg:grid grid-cols-5 gap-2">
+                            {galerie.map((image) => (
+                                <div>
+                                    <img
+                                        onClick={handleClick}
+                                        src={image.urls.regular}
+                                        className="h-64 w-full border-2 border-primary cursor-pointer"
+                                        alt=""
+                                    />
+                                </div>
+                            ))}
                         </div>
-                        <div>
-                            <img
-                                src={home_1}
-                                className="h-64 w-full border-2 border-primary"
-                                alt=""
-                            />
-                        </div>
-                        <div>
-                            <img
-                                src={home_3}
-                                className="h-64 w-full border-2 border-primary"
-                                alt=""
-                            />
-                        </div>
-                        <div>
-                            <img
-                                src={home_1}
-                                className="h-64 w-full border-2 border-primary"
-                                alt=""
-                            />
-                        </div>
-                        <div>
-                            <img
-                                src={home_3}
-                                className="h-64 w-full border-2 border-primary"
-                                alt=""
-                            />
-                        </div>
-                    </div>
+                    )}
                 </div>
             </div>
             <div className="container mx-auto text-center my-8 px-8 lg:px-0">
@@ -319,8 +320,21 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <Map />
-            <Footer />
+            {currentImage && (
+                <div className="bg-midtransparent text-white fixed top-0 py-32 px-8 left-0 w-full h-screen flex justify-center items-center">
+                    <img
+                        src={currentImage}
+                        className="w-full h-full max-w-6xl object-fit"
+                        alt=""
+                    />
+                    <button
+                        className="fixed top-0 right-0  p-8 text-3xl"
+                        onClick={() => setCurrentImage(null)}
+                    >
+                        <MdClose />
+                    </button>
+                </div>
+            )}
         </div>
     );
 };

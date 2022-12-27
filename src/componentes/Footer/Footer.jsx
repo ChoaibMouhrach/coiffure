@@ -1,7 +1,5 @@
 import { HiPhone, HiLocationMarker, HiMail } from "react-icons/hi";
 import Logo from "../../componentes/Logo/Logo";
-import SocialMedia from "../../componentes/SocialMedia/SocialMedia";
-import { BsFacebook, BsInstagram } from "react-icons/bs";
 import Button from "../Button/Button";
 
 const Footer = () => {
@@ -10,12 +8,20 @@ const Footer = () => {
             <div className="container mx-auto py-24 px-8 lg:px-0 gap-24 lg:grid grid-cols-2">
                 <div>
                     <Logo className={"w-80"} />
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Enim, placeat vitae odit nostrum provident, illum
-                        doloribus praesentium consequatur odio, sunt laboriosam
-                        expedita reprehenderit numquam ipsam.
-                    </p>
+                    <div>
+                        <div className="flex items-center gap-4">
+                            <HiMail className="text-lg text-primary" />
+                            contact@example.fr
+                        </div>
+                        <div className="flex items-center gap-4">
+                            <HiPhone className="text-lg text-primary" />{" "}
+                            07.67.40.xx.xx
+                        </div>
+                        <div className="flex items-center gap-4">
+                            <HiLocationMarker className="text-lg text-primary" />
+                            30 Place xx location, 59xx0 Villen
+                        </div>
+                    </div>
                 </div>
                 <div>
                     <form>

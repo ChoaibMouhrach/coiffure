@@ -1,13 +1,12 @@
 import Hero from "../../componentes/Hero/Hero";
-import hero_img from "../../assets/images/home_3.png";
-import Map from "../../componentes/Map/Map";
-import Footer from "../../componentes/Footer/Footer";
 import Table from "../../componentes/Table/Table";
+import women_hero from "../../assets/images/women_hero.jpg";
+import women1 from "../../assets/images/women1.jpg";
 
 const Womens_barber = () => {
     return (
         <div>
-            <Hero img={hero_img} />
+            <Hero img={women_hero} />
             <div className="container mx-auto p-8 lg:px-0 text-center flex flex-col gap-4">
                 <h2 className=" font-ballantines text-5xl">
                     Connecting Coiffure, votre salon de coiffure pour femmes à
@@ -29,7 +28,7 @@ const Womens_barber = () => {
             <div className="py-16 px-8 lg:px-0 container mx-auto lg:grid gap-8 grid-cols-2">
                 <div className="relative min-h-[300px]">
                     <img
-                        src={hero_img}
+                        src={women1}
                         className="absolute top-0 w-full h-full object-cover"
                         alt=""
                     />
@@ -236,8 +235,6 @@ const Womens_barber = () => {
                 pour femmes, vous pouvez contacter Connecting Coiffure au
                 07.67.40.58.49.
             </div>
-            <Map />
-            <Footer className="w-80" />
         </div>
     );
 };
